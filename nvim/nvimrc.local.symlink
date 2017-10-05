@@ -1,0 +1,361 @@
+" https://github.com/Shougo/neocomplcache.vim/wiki/neocomplcache-tips%3A
+let g:neocomplcache_disable_auto_complete = 1
+
+set autowrite   " Automatically :write before running commands 
+
+noremap  <silent> <C-S>    :update<CR>
+vnoremap <silent> <C-S>    <C-C>:update<CR>
+inoremap <silent> <C-S>    <C-O>:update<CR>
+
+
+" Get off my lawn
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
+
+" set guifont=Andale\ Mono\ Regular:h13,Menlo\ Regular:h13,Consolas\ Regular:h13,Courier\ New\ Regular:h14
+
+" turn off spellcheck by default
+set nospell
+
+" turn off backups
+set nobackup
+set nowritebackup
+set noswapfile
+
+" colorscheme railscasts
+let base16colorspace=256
+colorscheme base16-tomorrow-night
+" colorscheme base16-railscasts
+" set t_Co=256 " only support 256 colors in terminal
+
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+
+" I hate errorbells of all kinds
+autocmd! GUIEnter * set vb t_vb=
+
+" Display cursorline but if it gets slow turn it off
+set nocursorline
+
+" set statusline=%f\ %l\:%c
+
+" http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
+" autocmd FocusLost * set number
+" autocmd FocusGained * set relativenumber
+
+" In insert mode use absolute numbers, anything else relative
+" autocmd InsertEnter * set number
+" autocmd InsertLeave * set relativenumber
+set relativenumber
+
+
+runtime macros/matchit.vim
+
+" Matchit support:
+if exists("loaded_matchit")
+  if !exists("b:match_words")
+    let b:match_ignorecase = 0
+    let b:match_words =
+      \ '\%(\%(\%(^\|[;=]\)\s*\)\@<=\%(class\|module\|while\|begin\|until\|for\|if\|unless\|def\|case\)\|\<do\)\>:' .
+      \ '\<\%(else\|elsif\|ensure\|rescue\|when\)\>:\%(^\|[^.]\)\@<=\<end\>'
+  endif
+endif
+
+" Some customizations
+
+" Buffers
+nnoremap <leader>v :buffers<CR>:buffer<Space>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RUNNING TESTS (All from grb)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:test#javascript#mocha#file_pattern = '\vtests?/.*\.(js|jsx|coffee)$|.*\.test.js'
+let test#strategy = {
+  \ 'nearest': 'neovim',
+  \ 'file':    'neovim',
+  \ 'suite':   'neovim',
+  \}
+
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+
+
+" map <leader>t :call RunTestFile()<cr>
+" map <leader>T :call RunNearestTest()<cr>
+" map <leader>y :call RunFailedTests()<cr>
+" map <leader>a :call RunTests('')<cr>
+" map <leader>c :w\|:!script/features<cr>
+" map <leader>w :w\|:!script/features --profile wip<cr>
+
+" function! RunTestFile(...)
+"     if a:0
+"         let command_suffix = a:1
+"     else
+"         let command_suffix = ""
+"     endif
+
+"     " Run the tests for the previously-marked file.
+"     let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\|test.js\)$') != -1
+"     if in_test_file
+"         call SetTestFile()
+"     elseif !exists("t:grb_test_file")
+"         return
+"     end
+"     call RunTests(t:grb_test_file . command_suffix)
+" endfunction
+
+" function! RunFailedTests()
+"     call RunTestFile(" --only-failures")
+" endfunction
+
+" function! RunNearestTest()
+"     let spec_line_number = line('.')
+"     call RunTestFile(":" . spec_line_number . " -b")
+" endfunction
+
+" function! SetTestFile()
+"     " Set the spec file that tests will be run for.
+"     let t:grb_test_file=@%
+" endfunction
+
+" function! RunTests(filename)
+"     " Write the file and run tests for the given filename
+"     :w
+"     " :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+"     " :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+"     if match(a:filename, '\.feature$') != -1
+"         exec ":!script/features " . a:filename
+"     else
+"         if filereadable("script/test")
+"           exec ":!script/test " . a:filename
+"         elseif filereadable("bin/rspec")
+"           exec "Dispatch bin/rspec --format=progress --no-profile " . a:filename
+"         elseif filereadable("script/rspec")
+"           " for gems that should not have rspec binstubs installed in bin/
+"           exec "Dispatch script/rspec --format=progress --no-profile " . a:filename
+"         elseif filereadable("Gemfile")
+"           exec ":!bundle exec rspec --color " . a:filename
+"           " execute "Dispatch bundle exec rspec --format=progress --no-profile " . a:filename
+"           " call jobstart('shell', 'bash', ['bundle exec rspec --color', a:filename])
+"         elseif filereadable("package.json")
+"           exec "Dispatch npm test " . a:filename
+"         else
+"           exec ":!rspec --color " . a:filename
+"           " execute "Dispatch rspec --format=progress --no-profile " . a:filename
+"         end
+"     end
+" endfunction
+
+
+map <leader>r :call RunRubyFile()<cr>
+function! RunRubyFile()
+    let t:bjg_ruby_file=@%
+
+    " Write the file and run tests for the given filename
+    :w
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    if match(t:bjg_ruby_file, '\.rb$') != -1
+      if filereadable("Gemfile")
+        exec ":!bundle exec ruby " . t:bjg_ruby_file
+      else
+        exec ":!ruby " . t:bjg_ruby_file
+      end
+    elseif match(t:bjg_ruby_file, '\.swift$') != -1
+      exec ":!swift " . t:bjg_ruby_file
+    elseif match(t:bjg_ruby_file, '\.js$') != -1
+      exec ":!node " . t:bjg_ruby_file
+    end
+endfunction
+
+
+" au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+"
+function! DoPrettyXML()
+  " save the filetype so we can restore it later
+  let l:origft = &ft
+  set ft=
+  " delete the xml header if it exists. This will
+  " permit us to surround the document with fake tags
+  " without creating invalid xml.
+  1s/<?xml .*?>//e
+  " insert fake tags around the entire document.
+  " This will permit us to pretty-format excerpts of
+  " XML that may contain multiple top-level elements.
+  0put ='<PrettyXML>'
+  $put ='</PrettyXML>'
+  silent %!xmllint --format -
+  " xmllint will insert an <?xml?> header. it's easy enough to delete
+  " if you don't want it.
+  " delete the fake tags
+  2d
+  $d
+  " restore the 'normal' indentation, which is one extra level
+  " too deep due to the extra tags we wrapped around the document.
+  silent %<
+  " back to home
+  1
+  " restore the filetype
+  exe "set ft=" . l:origft
+endfunction
+
+function! DoPrettyXMLSimple()
+  silent %!xmllint --pretty 1 -
+endfunction
+
+
+command! PrettyXML call DoPrettyXML()
+command! TidyXML call DoPrettyXML()
+command! TidyXMLSimple call DoPrettyXMLSimple()
+
+command! Thtml :%!tidy -q -i --show-errors 0
+
+
+" set clipboard+=unnamedplus
+
+" " Clipboard management
+" function! ClipboardYank()
+"   call system('pbcopy', @@)
+" endfunction
+" function! ClipboardPaste()
+"   let @@ = system('pbpaste')
+" endfunction
+
+" vnoremap <silent> y y:call ClipboardYank()<cr>
+" vnoremap <silent> d d:call ClipboardYank()<cr>
+
+" See: http://stackoverflow.com/questions/2555559/pasting-from-clipboard-and-automatically-toggling-set-paste
+" Alternative :imap <D-v> ^O:set paste<Enter>^R+^O:set nopaste<Enter>
+" imap <D-V> ^O"+p
+
+" See the following for a great description:
+" http://got-ravings.blogspot.com/2008/08/vim-pr0n-making-statuslines-that-own.html
+"
+fu! RelativePathString()
+    let file = expand("%")
+
+    if strlen(file) == 0
+        retu "[No Name]"
+    en
+
+    retu file
+endf
+
+" From https://github.com/neovim/neovim/issues/1468#issuecomment-62979169
+function! Manpage()
+  let word = expand('<cword>')
+  enew!
+  setl nomod nolist nonumber norelativenumber
+  nnoremap q :bd!<cr>
+  setf man
+  exe 'r !man '.word
+  normal gg
+endfunction
+nnoremap K :call Manpage()<cr>
+
+set laststatus=2
+set statusline=%{RelativePathString()}
+set statusline+=[%{strlen(&fenc)?&fenc:'none'}, " file encoding
+set statusline+=%{&ff}]                         " file format
+set statusline+=%h                              " help file flag
+set statusline+=%m                              " modified flag
+set statusline+=%r                              " read only flag
+set statusline+=%y                              " filetype
+set statusline+=%=                              " left/right separator
+set statusline+=%c,                             " cursor column
+set statusline+=%l/%L                           " cursor line/total lines
+
+set colorcolumn=81
+
+" scroll through autocomplete suggestions using j and k
+inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+
+" \ 'link': 'some_bad_symbolic_links',
+" set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*.so,*.swp,*.zip     " MacOSX/Linux
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\(\.svn\|\.hg\|\.git\|node_modules\)$',
+  \ 'file': '\v\.(exe|so|dll|class)$',
+  \ }
+
+" From: https://github.com/kien/ctrlp.vim/issues/305
+" CtrlP auto cache clearing.
+" ----------------------------------------------------------------------------
+function! SetupCtrlP()
+  if exists("g:loaded_ctrlp") && g:loaded_ctrlp
+    augroup CtrlPExtension
+      autocmd!
+      autocmd FocusGained  * CtrlPClearCache
+      autocmd BufWritePost * CtrlPClearCache
+    augroup END
+  endif
+endfunction
+
+if has("autocmd")
+  autocmd VimEnter * :call SetupCtrlP()
+endif
+
+" function SetJavaOpts()
+"     setfiletype java
+"     "match these characters with %
+"     setlocal matchpairs=(:),{:},[:],<:>
+
+"     "eclipse style add a * comments
+"     setlocal comments-=s1:/*,mb:*,ex:*/
+"     setlocal comments+=fb:*
+
+"     "completion options
+"     setlocal cscopequickfix=s-,c-,d-,i-,t-,e-
+"     setlocal completeopt=longest,menuone
+"     setlocal completefunc=javacomplete#Complete
+"     "export java classpath as completion locations for javacomplete
+"     for i in split($CLASSPATH,":")|call javacomplete#AddClassPath(i)|endfor
+" endfunction
+" autocmd BufNewFile,Bufread *.java call SetJavaOpts()
+"
+"
+"
+if has('linebreak')
+  set breakindent
+  let &showbreak = '↳ '
+  set cpo+=n
+end
+
+
+nnoremap <silent><C-p> :CtrlSpace O<CR>
+map <leader>f :NERDTreeFind<cr>
+
+" au FileType qf call AdjustWindowHeight(3, 20)
+" function! AdjustWindowHeight(minheight, maxheight)
+"   exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
+" endfunction
+
+" Use deoplete.
+" let g:deoplete#enable_at_startup = 1
+
+" Turn off showing hidden characters
+set nolist
+
+if filereadable(expand("~/.nvimrc.lightline"))
+  source ~/.nvimrc.lightline
+endif
+
