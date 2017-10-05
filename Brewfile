@@ -1,7 +1,7 @@
 cask_args appdir: '/Applications'
 
-tap 'caskroom/cask'
 tap 'homebrew/bundle'
+tap 'puma/puma'
 
 brew 'ack'
 brew 'coreutils'
@@ -9,6 +9,7 @@ brew 'coreutils'
 # brew 'grc'
 brew 'imagemagick'
 brew 'jp2a'
+brew 'jq'
 brew 'libcaca', args: ['with-imlib2']
 brew 'libgit2'
 brew 'openssl'
@@ -22,6 +23,7 @@ brew 'rbenv'
 #brew 'spark'
 brew 'unrar'
 brew 'wget'
+brew 'yarn'
 brew 'youtube-dl'
 
 #cask '1password'
