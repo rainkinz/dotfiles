@@ -1,3 +1,4 @@
+
 # Use ctrl-a instead of ctrl-b for PREFIX
 set -g prefix C-a
 
