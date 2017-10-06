@@ -2,7 +2,7 @@
 export DOTFILES=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
+export PROJECTS=~/Projects
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -42,9 +42,19 @@ unset config_files
 
 # Better history
 # Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up
-bindkey "^[[B" down-line-or-beginning-search # Down
+# autoload -U up-line-or-beginning-search
+# autoload -U down-line-or-beginning-search
+# zle -N up-line-or-beginning-search
+# zle -N down-line-or-beginning-search
+# bindkey "^[[A" up-line-or-beginning-search # Up
+# bindkey "^[[B" down-line-or-beginning-search # Down
+
+# See: https://dougblack.io/words/zsh-vi-mode.html
+# Use vim mode!
+
+bindkey -v
+export KEYTIMEOUT=1
+
+# https://stackoverflow.com/questions/3127392/backward-search-in-vi-mode
+bindkey '^R' history-incremental-pattern-search-backward
+
