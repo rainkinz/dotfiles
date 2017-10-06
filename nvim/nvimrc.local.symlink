@@ -340,6 +340,13 @@ if has('linebreak')
   set cpo+=n
 end
 
+" Use the_silver_search for Ack.vim if present. This has the nice property
+" of excluding anything .gitignore by default. If there is something you wish
+" to ignore that is not in .gitignore create a /path/to/project/.ignore file.
+" For further details see: https://github.com/mileszs/ack.vim/issues/210
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 nnoremap <silent><C-p> :CtrlSpace O<CR>
 map <leader>f :NERDTreeFind<cr>
@@ -358,4 +365,5 @@ set nolist
 if filereadable(expand("~/.nvimrc.lightline"))
   source ~/.nvimrc.lightline
 endif
+
 
