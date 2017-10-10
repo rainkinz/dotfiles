@@ -16,3 +16,4 @@ config.symlink/nvim/.netrwhist
 git/gitconfig.local.symlink
 tmp/
 /cache/
+ruby/gemrc.symlink
