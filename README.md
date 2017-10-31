@@ -69,6 +69,10 @@ this script in `bin/`.
 
 ## bugs
 
+* tmux doesn't scroll back properly
+
+https://stackoverflow.com/questions/12865559/leaving-tmux-scrollback-in-terminal-iterm2
+
 I want this to work for everyone; that means when you clone it down it should
 work for you even though you may not have `rbenv` installed, for example. That
 said, I do use this as *my* dotfiles, so there's a good chance I may break

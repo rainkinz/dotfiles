@@ -58,3 +58,6 @@ export KEYTIMEOUT=1
 # https://stackoverflow.com/questions/3127392/backward-search-in-vi-mode
 bindkey '^R' history-incremental-pattern-search-backward
 
+# char movement
+# bindkey '^b' backward-char
+# bindkey '^f' forward-char

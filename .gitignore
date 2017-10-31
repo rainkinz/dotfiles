@@ -17,3 +17,5 @@ git/gitconfig.local.symlink
 tmp/
 /cache/
 ruby/gemrc.symlink
+
+config.symlink/configstore/

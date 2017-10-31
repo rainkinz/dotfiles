@@ -130,6 +130,8 @@ scriptencoding utf-8
     " GVIM- (here instead of .gvimrc)
     if has('gui_running')
         set guioptions-=T           " Remove the toolbar
+
+
         set lines=40                " 40 lines of text instead of 24
         if LINUX() && has("gui_running")
             set guifont=Andale\ Mono\ Regular\ 16,Menlo\ Regular\ 15,Consolas\ Regular\ 16,Courier\ New\ Regular\ 18
