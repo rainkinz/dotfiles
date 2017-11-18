@@ -85,3 +85,5 @@ https://stackoverflow.com/questions/12865559/leaving-tmux-scrollback-in-terminal
 
 * I like keep an eye on [Nick Plekhanov’s](https://github.com/nicksp/)
   [dotfiles](https://github.com/nicksp/dotfiles) for inspiration.
+
+* tmux config copied from here: https://github.com/hjwp/dotfiles/blob/master/.tmux.conf
