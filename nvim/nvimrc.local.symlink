@@ -357,7 +357,7 @@ map <leader>f :NERDTreeFind<cr>
 " endfunction
 
 " Use deoplete.
-" let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
 " Turn off showing hidden characters
 set nolist

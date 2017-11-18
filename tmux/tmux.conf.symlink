@@ -48,5 +48,6 @@ set -sg escape-time 0
 bind-key b send-keys -R \; clear-history \; send-keys "Enter"
 # bind-key C send-keys "clear && tmux clear-history" \; send-keys "Enter"
 
+
 # Local config
 if-shell "[ -f ~/.tmux.conf.local ]" 'source ~/.tmux.conf.local'

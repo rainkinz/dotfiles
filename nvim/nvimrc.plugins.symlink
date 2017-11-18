@@ -63,6 +63,13 @@ Plug 'udalov/kotlin-vim'
 
 " Syntax and Language Plugins
 
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+
+" golang
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+
 " nginx
 Plug 'chr4/nginx.vim'
 

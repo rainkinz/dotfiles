@@ -19,3 +19,4 @@ tmp/
 ruby/gemrc.symlink
 
 config.symlink/configstore/
+config.symlink/heroku/

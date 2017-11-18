@@ -29,3 +29,10 @@ set -g window-status-attr dim
 
 # See: https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
 set-option -g default-command "reattach-to-user-namespace -l zsh"
+
+
+# https://stackoverflow.com/questions/14300684/tmux-scroll-up-down-page-using-ctrl-b-and-ctrl-f
+setw -g mode-keys vi
+set -g status-keys vi
+bind-key -t vi-edit Up   history-up
+bind-key -t vi-edit Down history-down
