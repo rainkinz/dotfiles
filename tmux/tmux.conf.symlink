@@ -6,6 +6,11 @@
 # should try to run above command in tmux to look for errors
 # also one way to link ~/.tmux.conf to here is to put that line in the file
 
+# Get a list of colors with:
+# for i in {0..255}; do
+#   printf "\x1b[38;5;${i}mcolour${i}\x1b[0m\n"
+# done
+
 # chg the prefix key
 set-option -g prefix C-a
 unbind-key C-b
@@ -63,13 +68,15 @@ set -g set-titles on
 set -g set-titles-string '#(whoami) | session: #S'
 # the curl command gets your ip address. #S is the session name for tmux
 
+
 # setup the status bar on the bottom
-set -g status-bg colour4
+set -g status-bg colour110
+
 
 set -g status-fg white
 set -g status-interval 5
 set -g status-left-length 30
-set -g status-left '#[fg=colour3](#S) #(whoami) #[default]'
-set -g status-right '#[fg=colour3]#S #[fg=white]%a %d %b %R' 
+set -g status-left '#[fg=colour228](#S) #(whoami) #[default]'
+set -g status-right '' # '#[fg=colour228]#S #[fg=white]%a %d %b %R' 
 setw -g window-status-format "| #I:#W"
-setw -g window-status-current-format "| #[fg=colour3]#I:#W*"
+setw -g window-status-current-format "| #[fg=colour228]#I:#W*"
