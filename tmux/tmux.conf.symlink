@@ -35,7 +35,7 @@ set-option -sg escape-time 0
 set -g default-terminal "screen-256color"
 
 # lines of history
-set -g history-limit 5000
+set -g history-limit 20000
 
 
 # arg! no mouse, no.
@@ -63,6 +63,9 @@ unbind-key s
 bind-key s split-window -v
 
 
+# set only on OS X where it's required
+set -g default-command "reattach-to-user-namespace -l $SHELL"
+
 # rename terminals with ctrl+space then ,
 set -g set-titles on
 set -g set-titles-string '#(whoami) | session: #S'
@@ -71,8 +74,6 @@ set -g set-titles-string '#(whoami) | session: #S'
 
 # setup the status bar on the bottom
 set -g status-bg colour110
-
-
 set -g status-fg white
 set -g status-interval 5
 set -g status-left-length 30
@@ -80,3 +81,22 @@ set -g status-left '#[fg=colour228](#S) #(whoami) #[default]'
 set -g status-right '' # '#[fg=colour228]#S #[fg=white]%a %d %b %R' 
 setw -g window-status-format "| #I:#W"
 setw -g window-status-current-format "| #[fg=colour228]#I:#W*"
+
+# focus events enabled for terminals that support them
+set -g focus-events on
+
+# easier and faster switching between next/prev window
+bind C-p previous-window
+bind C-n next-window
+
+# if prefix is 'C-a'
+bind C-a send-prefix
+bind a last-window
+
+
+# Plugins
+# https://github.com/tmux-plugins/tmux-resurrect
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
