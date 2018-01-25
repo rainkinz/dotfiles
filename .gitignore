@@ -20,3 +20,5 @@ ruby/gemrc.symlink
 
 config.symlink/configstore/
 config.symlink/heroku/
+config.symlink/wireshark/
+config.symlink/yarn/
