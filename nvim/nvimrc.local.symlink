@@ -34,6 +34,8 @@ set noswapfile
 " colorscheme railscasts
 let base16colorspace=256
 colorscheme base16-tomorrow-night
+" colorscheme nova
+" colorscheme sacredforest
 " colorscheme base16-railscasts
 " set t_Co=256 " only support 256 colors in terminal
 
@@ -57,7 +59,6 @@ set nocursorline
 " autocmd InsertEnter * set number
 " autocmd InsertLeave * set relativenumber
 set relativenumber
-
 
 runtime macros/matchit.vim
 
@@ -340,6 +341,9 @@ if has('linebreak')
   set cpo+=n
 end
 
+" rubycop
+nmap <Leader>r :RuboCop<CR>
+
 " Use the_silver_search for Ack.vim if present. This has the nice property
 " of excluding anything .gitignore by default. If there is something you wish
 " to ignore that is not in .gitignore create a /path/to/project/.ignore file.
@@ -358,6 +362,14 @@ map <leader>f :NERDTreeFind<cr>
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
+
+let g:vimrubocop_keymap = 0
+nmap <Leader>r :RuboCop<CR>
+
+" Custom Commands
+"
+command! -range=% HashRocket silent execute <line1>.','.<line2>.'s/:\(\w\+\)\s*=>\s*/\1: /g'
+command! -range=% SingleQuote silent execute <line1>.','.<line2>.'s/"/''/g'
 
 " Turn off showing hidden characters
 set nolist

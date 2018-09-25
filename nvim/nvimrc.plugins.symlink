@@ -15,8 +15,11 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-dispatch'
 
 " Colors
+Plug 'sheerun/vim-polyglot'
 Plug 'chriskempson/base16-vim'
 Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Plug 'trevordmiller/nova-vim'
+Plug 'KKPMW/sacredforest-vim'
 
 
 " Finding Stuff 
@@ -37,7 +40,8 @@ Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'davebrace/vim-testnav'
 
-Plug 'udalov/kotlin-vim'
+" Use Idea
+" Plug 'udalov/kotlin-vim'
 
 " Completions
 " Plug 'roxma/nvim-completion-manager'
@@ -65,6 +69,8 @@ Plug 'udalov/kotlin-vim'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
+" ruby
+Plug 'ngmy/vim-rubocop'
 
 " golang
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -83,23 +89,22 @@ Plug 'geekjuice/vim-mocha'
 " Testing
 Plug 'janko-m/vim-test'
 Plug 'kassio/neoterm'
+Plug 'martinda/Jenkinsfile-vim-syntax'
 
 " Lisply Plugins
 " Plug 'guns/vim-sexp' " Attempt to strip down?
 " Plug 'tpope/vim-sexp-mappings-for-regular-people'
 " Plug 'luochen1990/rainbow'
 " Clojure plugins
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static'
 Plug 'guns/vim-clojure-highlight'
 
 " Plug 'neovim/node-host'
-" Plug 'snoe/clj-refactor.nvim', {'do': function('RefactorDoRemote')}
 
 " " TODO: Move to completion layer?
 " Plug 'clojure-vim/async-clj-omni'
 " Plug 'markwoodhall/vim-figwheel'
-
 
 " Rust
 Plug 'rust-lang/rust.vim'
@@ -110,6 +115,7 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-markdown'
 Plug 'hashivim/vim-terraform'
 
+Plug 'ngmy/vim-rubocop'
 
 " Initialize plugin system
 call plug#end()

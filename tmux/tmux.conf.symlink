@@ -12,12 +12,11 @@
 # done
 
 # chg the prefix key
-set-option -g prefix C-a
-unbind-key C-b
+# set-option -g prefix C-a
+# unbind-key C-b
 
 # in a remote access, use C-b C-b (twice) to "send prefix" to remote
 # bind-key C-a send-prefix
-
 
 # split panes using | and -
 bind | split-window -h
@@ -36,7 +35,8 @@ bind C-p previous-window
 bind C-n next-window
 
 # if prefix is 'C-a'
-bind a last-window
+# bind b last-window
+bind b last-window
 
 # switch panes using Alt-arrow without prefix
 bind -n M-Left select-pane -L
@@ -98,19 +98,16 @@ set -g set-titles on
 set -g set-titles-string '#(whoami) | session: #S'
 # the curl command gets your ip address. #S is the session name for tmux
 
-# # pretty colors
-# set -g default-terminal "screen-256color"
 
-
-# # setup the status bar on the bottom
-# set -g status-bg colour110
-# set -g status-fg white
-# set -g status-interval 5
-# set -g status-left-length 30
-# set -g status-left '#[fg=colour228](#S) #(whoami) #[default]'
-# set -g status-right '' # '#[fg=colour228]#S #[fg=white]%a %d %b %R' 
-# setw -g window-status-format "| #I:#W"
-# setw -g window-status-current-format "| #[fg=colour228]#I:#W*"
+# https://github.com/trevordmiller/nova-tmux/blob/master/assets/.tmux.conf
+set -ga terminal-overrides ",xterm-256color:Tc"
+set -g default-terminal "xterm-256color"
+set -g status-style 'bg=#1E272C,fg=#6A7D89'
+set -g window-status-current-style 'fg=cyan'
+set -g mode-style 'bg=cyan,fg=black'
+set -g message-style 'bg=black,fg=cyan'
+set -g pane-border-style 'bg=black,fg=#1E272C'
+set -g pane-active-border-style 'bg=black,fg=#1E272C'
 
 
 ######################

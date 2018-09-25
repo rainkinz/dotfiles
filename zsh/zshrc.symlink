@@ -51,8 +51,9 @@ unset config_files
 
 # See: https://dougblack.io/words/zsh-vi-mode.html
 # Use vim mode!
-
-bindkey -v
+# bindkey -v
+# Use emacs mode
+bindkey -e
 export KEYTIMEOUT=1
 
 # https://stackoverflow.com/questions/3127392/backward-search-in-vi-mode
@@ -61,3 +62,10 @@ bindkey '^R' history-incremental-pattern-search-backward
 # char movement
 # bindkey '^b' backward-char
 # bindkey '^f' forward-char
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
