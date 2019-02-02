@@ -44,12 +44,10 @@ set tabstop=2
 set softtabstop=2
 
 " I hate errorbells of all kinds
-autocmd! GUIEnter * set vb t_vb=
+" autocmd! GUIEnter * set vb t_vb=
 
 " Display cursorline but if it gets slow turn it off
 set nocursorline
-
-" set statusline=%f\ %l\:%c
 
 " http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
 " autocmd FocusLost * set number
@@ -80,7 +78,7 @@ nnoremap <leader>v :buffers<CR>:buffer<Space>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RUNNING TESTS (All from grb)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+" Using vim-test
 " let g:test#javascript#mocha#file_pattern = '\vtests?/.*\.(js|jsx|coffee)$|.*\.test.js'
 " let test#strategy = {
 "   \ 'nearest': 'neoterm',
@@ -297,8 +295,8 @@ inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 
 " \ 'link': 'some_bad_symbolic_links',
-" set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+" set wildignore+=*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\(\.svn\|\.hg\|\.git\|node_modules\)$',
   \ 'file': '\v\.(exe|so|dll|class)$',
@@ -356,7 +354,6 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-nnoremap <silent><C-p> :CtrlSpace O<CR>
 map <leader>f :NERDTreeFind<cr>
 
 " au FileType qf call AdjustWindowHeight(3, 20)
@@ -376,10 +373,9 @@ command! -range=% HashRocket silent execute <line1>.','.<line2>.'s/:\(\w\+\)\s*=
 command! -range=% SingleQuote silent execute <line1>.','.<line2>.'s/"/''/g'
 
 " Turn off showing hidden characters
-set nolist
+" set nolist
 
 if filereadable(expand("~/.nvimrc.lightline"))
   source ~/.nvimrc.lightline
 endif
-
 

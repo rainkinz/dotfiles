@@ -68,6 +68,7 @@ Plug 'davebrace/vim-testnav'
 
 " Syntax and Language Plugins
 
+Plug 'neomake/neomake'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'wesQ3/vim-windowswap'
@@ -89,7 +90,7 @@ Plug 'geekjuice/vim-mocha'
 Plug 'moll/vim-node'
 
 " Testing
-Plug 'janko-m/vim-test'
+" Plug 'janko-m/vim-test'
 Plug 'thoughtbot/vim-rspec'
 " Plug 'kassio/neoterm'
 Plug 'martinda/Jenkinsfile-vim-syntax'
