@@ -40,6 +40,9 @@ done
 
 unset config_files
 
+USER_BASE_PATH=$(python -m site --user-base)
+export PATH=$PATH:$USER_BASE_PATH/bin
+
 # Better history
 # Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
 # autoload -U up-line-or-beginning-search

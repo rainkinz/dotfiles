@@ -22,7 +22,9 @@ syntax on                   " Syntax highlighting
 set mouse=a                 " Automatically enable mouse usage
 if &term =~ '^screen'
   " tmux knows the extended mouse mode
-  set ttymouse=xterm2
+  if !has('nvim')
+    set ttymouse=xterm2
+  end
 endif
 set mousehide               " Hide the mouse cursor while typing
 scriptencoding utf-8

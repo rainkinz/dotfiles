@@ -22,3 +22,10 @@ config.symlink/configstore/
 config.symlink/heroku/
 config.symlink/wireshark/
 config.symlink/yarn/
+config.symlink/NuGet/
+config.symlink/alacritty/
+config.symlink/gocode/
+config.symlink/rclone/
+config.symlink/stetic/
+config.symlink/xbuild/
+graalvm/

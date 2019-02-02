@@ -13,6 +13,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " Easy async RSpec running
 Plug 'tpope/vim-dispatch'
+"Plug 'AdUki/vim-dispatch-neovim'
 
 " Colors
 Plug 'sheerun/vim-polyglot'
@@ -69,8 +70,8 @@ Plug 'davebrace/vim-testnav'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-" ruby
-Plug 'ngmy/vim-rubocop'
+Plug 'wesQ3/vim-windowswap'
+
 
 " golang
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -82,13 +83,15 @@ Plug 'chr4/nginx.vim'
 " Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+let g:jsx_ext_required = 0
+
 Plug 'geekjuice/vim-mocha' 
 Plug 'moll/vim-node'
-Plug 'geekjuice/vim-mocha'
 
 " Testing
 Plug 'janko-m/vim-test'
-Plug 'kassio/neoterm'
+Plug 'thoughtbot/vim-rspec'
+" Plug 'kassio/neoterm'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 
 " Lisply Plugins
@@ -115,6 +118,8 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-markdown'
 Plug 'hashivim/vim-terraform'
 
+" ruby
+Plug 'vim-ruby/vim-ruby'
 Plug 'ngmy/vim-rubocop'
 
 " Initialize plugin system
