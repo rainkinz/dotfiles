@@ -367,6 +367,12 @@ let g:deoplete#enable_at_startup = 1
 let g:vimrubocop_keymap = 0
 nmap <Leader>R :RuboCop<CR>
 
+" TODO: FIXME: Fix this HACK
+" https://superuser.com/questions/815416/hitting-enter-in-the-quickfix-window-doesnt-work
+" In the quickfix window, <CR> is used to jump to the error under the
+" cursor, so undefine the mapping there.
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+
 " Custom Commands
 "
 command! -range=% HashRocket silent execute <line1>.','.<line2>.'s/:\(\w\+\)\s*=>\s*/\1: /g'

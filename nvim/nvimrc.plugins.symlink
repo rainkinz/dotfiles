@@ -13,7 +13,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " Easy async RSpec running
 Plug 'tpope/vim-dispatch'
-"Plug 'AdUki/vim-dispatch-neovim'
+Plug 'AdUki/vim-dispatch-neovim'
 
 " Colors
 Plug 'sheerun/vim-polyglot'
