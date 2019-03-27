@@ -10,6 +10,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'vim-scripts/Rename'
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'szw/vim-maximizer'
 
 " Easy async RSpec running
 Plug 'tpope/vim-dispatch'
@@ -19,8 +20,8 @@ Plug 'AdUki/vim-dispatch-neovim'
 Plug 'sheerun/vim-polyglot'
 Plug 'chriskempson/base16-vim'
 Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
-Plug 'trevordmiller/nova-vim'
 Plug 'KKPMW/sacredforest-vim'
+Plug 'junegunn/seoul256.vim'
 
 
 " Finding Stuff 
@@ -84,7 +85,8 @@ Plug 'chr4/nginx.vim'
 " Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-let g:jsx_ext_required = 0
+let g:jsx_ext_required = 1
+Plug 'leshill/vim-json'
 
 Plug 'geekjuice/vim-mocha' 
 Plug 'moll/vim-node'
@@ -122,6 +124,8 @@ Plug 'hashivim/vim-terraform'
 " ruby
 Plug 'vim-ruby/vim-ruby'
 Plug 'ngmy/vim-rubocop'
+
+Plug 'editorconfig/editorconfig-vim'
 
 " Initialize plugin system
 call plug#end()
