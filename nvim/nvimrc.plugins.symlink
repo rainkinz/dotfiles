@@ -22,6 +22,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Plug 'KKPMW/sacredforest-vim'
 Plug 'junegunn/seoul256.vim'
+Plug 'mhartington/oceanic-next'
 
 
 " Finding Stuff 

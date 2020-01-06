@@ -31,12 +31,7 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-" colorscheme railscasts
-" " Light color scheme
-colo seoul256-light
 
-" Switch
-set background=dark
 
 " let base16colorspace=256
 " colorscheme base16-tomorrow-night

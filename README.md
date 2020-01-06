@@ -1,5 +1,9 @@
 # Brendan's dotfiles
 
+TODO
+
+* Look at this: https://github.com/samuelmeuli/tmignore
+
 I originally forked [Zack Holman's](https://github.com/holman/)' comprehensive
 [dotfiles](https://github.com/holman/dotfiles) and have been slowly adding
 my own tweaks to suit my own preferences. You're probably looking for what he

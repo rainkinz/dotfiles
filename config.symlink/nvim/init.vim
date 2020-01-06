@@ -113,32 +113,40 @@ endfunction
 
 
 
-" GUI Settings {
-
-    " GVIM- (here instead of .gvimrc)
-    if has('gui_running')
-        set guioptions-=T           " Remove the toolbar
 
 
-        set lines=40                " 40 lines of text instead of 24
-        if LINUX() && has("gui_running")
-            set guifont=Andale\ Mono\ Regular\ 16,Menlo\ Regular\ 15,Consolas\ Regular\ 16,Courier\ New\ Regular\ 18
-        elseif OSX() && has("gui_running")
-            set guifont=Andale\ Mono\ for\ Powerline\ Regular:h13,Menlo\ Regular:h13,Consolas\ Regular:h13,Courier\ New\ Regular:h14
-            "set guifont=Andale\ Mono\ Regular:h13,Menlo\ Regular:h13,Consolas\ Regular:h13,Courier\ New\ Regular:h14
-        elseif WINDOWS() && has("gui_running")
-            set guifont=Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
-        endif
-    else
-        if &term == 'xterm' || &term == 'screen'
-            set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
-        endif
-        "set term=builtin_ansi       " Make arrow and other keys work
-    endif
 
-    "set guifont=Andale\ Mono\ for\ Powerline\ Regular:h13,Menlo\ Regular:h13,Consolas\ Regular:h13,Courier\ New\ Regular:h14
-    " set guifont=Andale\ Mono\ Regular:h13,Menlo\ Regular:h13,Consolas\ Regular:h13,Courier\ New\ Regular:h14
-" }
+" ============================================================================ "
+" ===                                UI                                    === "
+" ============================================================================ "
+
+" Enable true color support
+set termguicolors
+
+" Editor theme
+set background=dark
+try
+  colorscheme OceanicNext
+  " colorscheme jellybeans
+catch
+  colorscheme slate
+endtry
+
+" Add custom highlights in method that is executed every time a
+" colorscheme is sourced
+" See https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f for
+" details
+function! MyHighlights() abort
+  " Hightlight trailing whitespace
+  highlight Trail ctermbg=red guibg=red
+  call matchadd('Trail', '\s\+$', 100)
+endfunction
+
+augroup MyColors
+  autocmd!
+  autocmd ColorScheme * call MyHighlights()
+augroup END
+
 
 
 " Key Mappings {
