@@ -40,7 +40,7 @@ endif
 Plug 'tpope/vim-commentary'
 Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
-Plug 'davebrace/vim-testnav'
+" Plug 'davebrace/vim-testnav'
 
 " Use Idea
 " Plug 'udalov/kotlin-vim'

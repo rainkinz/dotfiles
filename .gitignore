@@ -29,3 +29,5 @@ config.symlink/rclone/
 config.symlink/stetic/
 config.symlink/xbuild/
 graalvm/
+
+Brewfile.lock.json
