@@ -31,3 +31,6 @@ config.symlink/xbuild/
 graalvm/
 
 Brewfile.lock.json
+
+
+config.symlink/direnv

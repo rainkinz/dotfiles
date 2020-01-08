@@ -3,6 +3,7 @@
 TODO
 
 * Look at this: https://github.com/samuelmeuli/tmignore
+* Reorganize how directories organized in `~/.config` are installed
 
 I originally forked [Zack Holman's](https://github.com/holman/)' comprehensive
 [dotfiles](https://github.com/holman/dotfiles) and have been slowly adding
