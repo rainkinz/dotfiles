@@ -34,3 +34,4 @@ Brewfile.lock.json
 
 
 config.symlink/direnv
+config.symlink/nvim/autoload/

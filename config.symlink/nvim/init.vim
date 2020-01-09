@@ -1,3 +1,7 @@
+scriptencoding utf-8
+source ~/.config/nvim/plugins.vim
+
+
 set nocompatible
 
 filetype off
@@ -241,4 +245,10 @@ inoremap <silent><expr> <C-Space>
 		let col = col('.') - 1
 		return !col || getline('.')[col - 1]  =~ '\s'
 		endfunction"}}}
+
+
+" Load other configuration files
+source ~/.config/nvim/testing.vim
+" source ~/.config/nvim/syntax.vim
+" source ~/.config/nvim/mapping_overrides.vim
 
