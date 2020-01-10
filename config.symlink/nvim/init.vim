@@ -6,18 +6,7 @@ set nocompatible
 
 filetype off
 
-" Use bundles config {
-    " Matchit needs to be running for a textobjects
-    runtime macros/matchit.vim
-
-    " if filereadable(expand("~/.nvimrc.bundles"))
-    "     source ~/.nvimrc.bundles
-    " endif
-
-    if filereadable(resolve(expand("~/.nvimrc.plugins")))
-        source ~/.nvimrc.plugins
-    endif
-" }
+runtime macros/matchit.vim
 
 " General 
 set background=dark

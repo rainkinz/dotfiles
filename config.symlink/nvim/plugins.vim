@@ -66,9 +66,64 @@ endif
 Plug 'tpope/vim-commentary'
 Plug 'kana/vim-textobj-user'
 
+
+Plug 'neomake/neomake'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+Plug 'wesQ3/vim-windowswap'
+
+" Intellisense Engine
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+
+" Support .editorconfig files
+Plug 'editorconfig/editorconfig-vim'
+
+" golang
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+
+" nginx
+Plug 'chr4/nginx.vim'
+
+" Javascript
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+let g:jsx_ext_required = 1
+Plug 'leshill/vim-json'
+
+Plug 'geekjuice/vim-mocha' 
+Plug 'moll/vim-node'
+
+" Testing
+" Plug 'janko-m/vim-test'
+Plug 'thoughtbot/vim-rspec'
+" Plug 'kassio/neoterm'
+Plug 'martinda/Jenkinsfile-vim-syntax'
+
+" Lisply Plugins
+" Plug 'guns/vim-sexp' " Attempt to strip down?
+" Plug 'tpope/vim-sexp-mappings-for-regular-people'
+" Plug 'luochen1990/rainbow'
+" Clojure plugins
+" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+" Plug 'guns/vim-clojure-static'
+" Plug 'guns/vim-clojure-highlight'
+
+" " TODO: Move to completion layer?
+" Plug 'clojure-vim/async-clj-omni'
+" Plug 'markwoodhall/vim-figwheel'
+
+" Rust
+Plug 'rust-lang/rust.vim'
+
+" CSS
+Plug 'hail2u/vim-css3-syntax'
+
+Plug 'tpope/vim-markdown'
+Plug 'hashivim/vim-terraform'
+
+
 "" TODO Add these in as we go
-"" Intellisense Engine
-"Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 "" Tmux/Neovim movement integration
 "Plug 'christoomey/vim-tmux-navigator'
