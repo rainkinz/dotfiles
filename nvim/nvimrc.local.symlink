@@ -92,16 +92,16 @@ nnoremap <leader>v :buffers<CR>:buffer<Space>
 " nmap <silent> <leader>l :TestLast<CR>
 " nmap <silent> <leader>g :TestVisit<CR>
 "
-if exists("bin/rspec-docker")
-  let g:rspec_command = "Dispatch bin/rspec-docker {spec}"
-else  
-  let g:rspec_command = "Dispatch bundle exec rspec {spec}"
-endif
+" if exists("bin/rspec-docker")
+"   let g:rspec_command = "Dispatch bin/rspec-docker {spec}"
+" else  
+"   let g:rspec_command = "Dispatch bundle exec rspec {spec}"
+" endif
 
-map <Leader>T :call RunCurrentSpecFile()<CR>
-map <Leader>t :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+" map <Leader>T :call RunCurrentSpecFile()<CR>
+" map <Leader>t :call RunNearestSpec()<CR>
+" map <Leader>l :call RunLastSpec()<CR>
+" map <Leader>a :call RunAllSpecs()<CR>
 
 " From: https://vim.fandom.com/wiki/Automatically_fitting_a_quickfix_window_height
 au FileType qf call AdjustWindowHeight(3, 25)
@@ -304,6 +304,8 @@ set colorcolumn=81
 " scroll through autocomplete suggestions using j and k
 inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+
+set completeopt=longest,menuone
 
 " \ 'link': 'some_bad_symbolic_links',
 " set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux

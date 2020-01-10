@@ -209,35 +209,44 @@ if has('nvim')
   set clipboard^=unnamedplus
 endif
 
-" Use before config if available {
-    if filereadable(expand("~/.nvimrc.local"))
-        source ~/.nvimrc.local
-    endif
-" }
-"
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" deoplete config
-let g:deoplete#enable_at_startup = 1
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-" match M but not m etc
-let g:deoplete#enable_smart_case = 1
 
-" disable autocomplete
-let g:deoplete#disable_auto_complete = 1
+" TODO: Get rid of this?
+" " deoplete config
+" let g:deoplete#enable_at_startup = 1
 
-" From the docs. Though they use TAB
-inoremap <silent><expr> <C-Space>
-		\ pumvisible() ? "\<C-n>" :
-		\ <SID>check_back_space() ? "\<TAB>" :
-		\ deoplete#mappings#manual_complete()
-		function! s:check_back_space() abort "{{{
-		let col = col('.') - 1
-		return !col || getline('.')[col - 1]  =~ '\s'
-		endfunction"}}}
+" " match M but not m etc
+" let g:deoplete#enable_smart_case = 1
 
+" " disable autocomplete
+" let g:deoplete#disable_auto_complete = 1
+
+" " From the docs. Though they use TAB
+" inoremap <silent><expr> <C-Space>
+" 		\ pumvisible() ? "\<C-n>" :
+" 		\ <SID>check_back_space() ? "\<TAB>" :
+" 		\ deoplete#mappings#manual_complete()
+" 		function! s:check_back_space() abort "{{{
+" 		let col = col('.') - 1
+" 		return !col || getline('.')[col - 1]  =~ '\s'
+" 		endfunction"}}}
 
 " Load other configuration files
 source ~/.config/nvim/testing.vim
 " source ~/.config/nvim/syntax.vim
 " source ~/.config/nvim/mapping_overrides.vim
 
+if filereadable(expand("~/.nvimrc.local"))
+  source ~/.nvimrc.local
+endif
+"

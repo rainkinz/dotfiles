@@ -68,7 +68,7 @@ Plug 'kana/vim-textobj-user'
 
 
 Plug 'neomake/neomake'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'wesQ3/vim-windowswap'
 
