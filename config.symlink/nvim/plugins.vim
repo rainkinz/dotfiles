@@ -25,10 +25,12 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'ntpeters/vim-better-whitespace'
 
 " auto-close plugin
-Plug 'rstacruz/vim-closer'
+" NOTE: This is causing problems with coc
+" Plug 'rstacruz/vim-closer'
 
 " Improved motion in Vim
-Plug 'easymotion/vim-easymotion'
+" TODO: Look at this when I've finished cleaning up
+" Plug 'easymotion/vim-easymotion'
 
 Plug 'itchyny/lightline.vim'
 Plug 'schickling/vim-bufonly'
@@ -51,7 +53,7 @@ Plug 'junegunn/seoul256.vim'
 Plug 'mhartington/oceanic-next'
 
 
-" Finding Stuff 
+" Finding Stuff
 Plug 'ctrlpvim/ctrlp.vim'
 if executable('ag')
   Plug 'mileszs/ack.vim'
@@ -73,14 +75,14 @@ Plug 'neomake/neomake'
 Plug 'wesQ3/vim-windowswap'
 
 " Intellisense Engine
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " Support .editorconfig files
 Plug 'editorconfig/editorconfig-vim'
 
 " golang
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
+" Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+" Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 " nginx
 Plug 'chr4/nginx.vim'
@@ -127,10 +129,6 @@ Plug 'hashivim/vim-terraform'
 
 "" Tmux/Neovim movement integration
 "Plug 'christoomey/vim-tmux-navigator'
-
-"" Denite - Fuzzy finding, buffer management
-"" Plug 'Shougo/denite.nvim', { 'commit': '29bfd4c53271c7a150def2388e059746ae4c1713' }
-"Plug 'Shougo/denite.nvim'
 "Plug '/usr/local/opt/fzf'
 "Plug 'junegunn/fzf.vim'
 "Plug 'mileszs/ack.vim'
@@ -193,8 +191,8 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 "" === Elixir Plugins === "
 "Plug 'elixir-editors/vim-elixir'
 
-"" === Terraform Plugins === "
-"Plug 'hashivim/vim-terraform'
+" === Terraform Plugins === "
+Plug 'hashivim/vim-terraform'
 
 "" Python
 ""Plug 'szymonmaszke/vimpyter'
