@@ -28,6 +28,13 @@ Plug 'ntpeters/vim-better-whitespace'
 " NOTE: This is causing problems with coc
 " Plug 'rstacruz/vim-closer'
 
+function! HandleCRKey() abort
+  return pumvisible() ? "\<C-E>\n" : "\n"
+endfunction
+
+" vim-closer can extend this correctly
+inoremap <silent> <CR> <C-R>=HandleCRKey()<CR>
+
 " Improved motion in Vim
 " TODO: Look at this when I've finished cleaning up
 " Plug 'easymotion/vim-easymotion'

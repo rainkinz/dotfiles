@@ -14,3 +14,6 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Close the preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" FIXME: Somewhere the completeopts are being set wrong
+set completeopt=noinsert,menuone
