@@ -104,3 +104,8 @@ https://stackoverflow.com/questions/12865559/leaving-tmux-scrollback-in-terminal
   [dotfiles](https://github.com/nicksp/dotfiles) for inspiration.
 
 * tmux config copied from here: https://github.com/hjwp/dotfiles/blob/master/.tmux.conf
+
+
+## Other System Changes
+
+Linked dylibs as per: https://someguys.blog/2019-10-09-python-abort-on-macos-catalina/

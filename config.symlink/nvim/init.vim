@@ -1,19 +1,12 @@
+scriptencoding utf-8
+source ~/.config/nvim/plugins.vim
+
+
 set nocompatible
 
 filetype off
 
-" Use bundles config {
-    " Matchit needs to be running for a textobjects
-    runtime macros/matchit.vim
-
-    " if filereadable(expand("~/.nvimrc.bundles"))
-    "     source ~/.nvimrc.bundles
-    " endif
-
-    if filereadable(resolve(expand("~/.nvimrc.plugins")))
-        source ~/.nvimrc.plugins
-    endif
-" }
+runtime macros/matchit.vim
 
 " General 
 set background=dark
@@ -97,8 +90,6 @@ autocmd BufNewFile,BufRead Gulpfile set filetype=javascript
 " Workaround broken colour highlighting in Haskell
 autocmd FileType c,cpp,java,go,ruby,javascript,python,xml,yml setlocal nospell
 
-
-
 function! StripTrailingWhitespace()
     " Preparation: save last search, and cursor position.
     let _s=@/
@@ -110,9 +101,6 @@ function! StripTrailingWhitespace()
     let @/=_s
     call cursor(l, c)
 endfunction
-
-
-
 
 
 
@@ -179,28 +167,6 @@ map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>c :cclose<CR>
 
-" golang
-"
-" run :GoBuild or :GoTestCompile based on the go file
-" See: https://github.com/fatih/vim-go/blob/master/autoload/go/test.vim
-" and
-" https://github.com/fatih/vim-go-tutorial#test-it
-function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    echo "Testing..."
-
-    call go#test#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-
-    echo "Building..."
-    call go#cmd#Build(0)
-  endif
-endfunction
-
-autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-autocmd FileType go nmap <leader>r  <Plug>(go-run)
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
 
 " NERDTree cusomization
 map <leader>n :NERDTreeToggle<CR>
@@ -216,29 +182,19 @@ if has('nvim')
   set clipboard^=unnamedplus
 endif
 
-" Use before config if available {
-    if filereadable(expand("~/.nvimrc.local"))
-        source ~/.nvimrc.local
-    endif
-" }
+
+" Load other configuration files
+source ~/.config/nvim/testing.vim
+source ~/.config/nvim/coc.vim
+
+" source ~/.config/nvim/syntax.vim
+" source ~/.config/nvim/mapping_overrides.vim
+
+if filereadable(expand("~/.nvimrc.lightline"))
+  source ~/.nvimrc.lightline
+endif
+
+if filereadable(expand("~/.nvimrc.local"))
+  source ~/.nvimrc.local
+endif
 "
-
-" deoplete config
-let g:deoplete#enable_at_startup = 1
-
-" match M but not m etc
-let g:deoplete#enable_smart_case = 1
-
-" disable autocomplete
-let g:deoplete#disable_auto_complete = 1
-
-" From the docs. Though they use TAB
-inoremap <silent><expr> <C-Space>
-		\ pumvisible() ? "\<C-n>" :
-		\ <SID>check_back_space() ? "\<TAB>" :
-		\ deoplete#mappings#manual_complete()
-		function! s:check_back_space() abort "{{{
-		let col = col('.') - 1
-		return !col || getline('.')[col - 1]  =~ '\s'
-		endfunction"}}}
-
