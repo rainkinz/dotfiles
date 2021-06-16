@@ -45,19 +45,23 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'vim-scripts/Rename'
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+map <leader>h :NERDTreeFind<cr>
+map <leader>g :NERDTreeVCS<cr>
+
 Plug 'szw/vim-maximizer'
+" Don't use defaults
+let g:maximizer_set_default_mapping = 0
 
 " Easy async RSpec running
 Plug 'tpope/vim-dispatch'
 Plug 'AdUki/vim-dispatch-neovim'
 
 " Colors
-Plug 'sheerun/vim-polyglot'
-Plug 'chriskempson/base16-vim'
-Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
-Plug 'KKPMW/sacredforest-vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'mhartington/oceanic-next'
+Plug 'arzg/vim-colors-xcode'
+Plug 'sainnhe/sonokai'
+Plug 'sainnhe/edge'
 
 
 " Finding Stuff
@@ -87,6 +91,10 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " Support .editorconfig files
 Plug 'editorconfig/editorconfig-vim'
 
+" Snippet support: Note I'm using Coc for actually selecting the snippets as
+" per: https://github.com/honza/vim-snippets
+Plug 'honza/vim-snippets'
+
 " golang
 " Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 " Plug 'zchee/deoplete-go', { 'do': 'make'}
@@ -95,13 +103,15 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'chr4/nginx.vim'
 
 " Javascript
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-let g:jsx_ext_required = 1
-Plug 'leshill/vim-json'
+Plug 'sheerun/vim-polyglot'
 
-Plug 'geekjuice/vim-mocha' 
-Plug 'moll/vim-node'
+" Plug 'pangloss/vim-javascript'
+" Plug 'mxw/vim-jsx'
+" let g:jsx_ext_required = 1
+" Plug 'elzr/vim-json'
+
+" Plug 'geekjuice/vim-mocha'
+" Plug 'moll/vim-node'
 
 " Testing
 " Plug 'janko-m/vim-test'
@@ -140,9 +150,6 @@ Plug 'hashivim/vim-terraform'
 "Plug 'junegunn/fzf.vim'
 "Plug 'mileszs/ack.vim'
 
-"" Snippet support
-"Plug 'Shougo/neosnippet'
-"Plug 'Shougo/neosnippet-snippets'
 
 "" Print function signatures in echo area
 "Plug 'Shougo/echodoc.vim'
@@ -161,9 +168,9 @@ Plug 'vim-scripts/Rename'
 "" Plug 'mhinz/vim-signify'
 "" Plug 'tpope/vim-fugitive'
 
-"" === Javascript Plugins === "
-"" Typescript syntax highlighting
-"Plug 'HerringtonDarkholme/yats.vim'
+" === Javascript Plugins === "
+" Typescript syntax highlighting
+" Plug 'HerringtonDarkholme/yats.vim'
 
 "" ReactJS JSX syntax highlighting
 "Plug 'mxw/vim-jsx'
