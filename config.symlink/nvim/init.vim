@@ -1,14 +1,13 @@
 scriptencoding utf-8
 source ~/.config/nvim/plugins.vim
 
-
 set nocompatible
 
 filetype off
 
 runtime macros/matchit.vim
 
-" General 
+" General
 set background=dark
 filetype plugin indent on   " Automatically detect file types.
 syntax on                   " Syntax highlighting
@@ -78,7 +77,7 @@ set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 " To disable the stripping of whitespace, add the following to your
 " .vimrc.before.local file:
 "   let g:bjg23_keep_trailing_whitespace = 1
-autocmd FileType c,cpp,css,dockerfile,eruby,java,javacc,javascript,go,python,sh,xml,yml,clojure,markdown,ruby,scss,yaml autocmd BufWritePre <buffer> if !exists('g:bjg23_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
+autocmd FileType c,cpp,css,dockerfile,eruby,java,javacc,javascript,go,python,sh,xml,yml,clojure,markdown,ruby,terraform,typescript,typescriptreact,scss,yaml autocmd BufWritePre <buffer> if !exists('g:bjg23_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
 
 autocmd BufNewFile,BufRead .babelrc set filetype=javascript
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
@@ -114,8 +113,10 @@ set termguicolors
 " Editor theme
 set background=dark
 try
-  colorscheme OceanicNext
-  " colorscheme jellybeans
+  " let g:sonokai_style = 'maia'
+  colorscheme sonokai
+  " colorscheme OceanicNext
+  " colorscheme xcodedarkhc
 catch
   colorscheme slate
 endtry
@@ -186,6 +187,7 @@ endif
 " Load other configuration files
 source ~/.config/nvim/testing.vim
 source ~/.config/nvim/coc.vim
+source ~/.config/nvim/commands.vim
 
 " source ~/.config/nvim/syntax.vim
 " source ~/.config/nvim/mapping_overrides.vim

@@ -28,6 +28,7 @@ config.symlink/gocode/
 config.symlink/rclone/
 config.symlink/stetic/
 config.symlink/xbuild/
+config.symlink/csharp.history
 graalvm/
 
 Brewfile.lock.json
